@@ -1,0 +1,110 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:CADENCE-{####}",
+ "creation": "2026-07-20 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "days_overdue_from",
+  "days_overdue_to",
+  "column_break_3",
+  "action",
+  "section_break_5",
+  "message_template",
+  "column_break_7",
+  "active"
+ ],
+ "fields": [
+  {
+   "fieldname": "days_overdue_from",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Days Overdue From",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "days_overdue_to",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Days Overdue To",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "action",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Action",
+   "options": "Send WhatsApp Reminder\nSend SMS\nFlag for Call\nEscalate to Legal",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "message_template",
+   "fieldtype": "Link",
+   "label": "Message Template",
+   "options": "Message Template",
+   "mandatory_depends_on": "eval:in_list(['Send WhatsApp Reminder', 'Send SMS'], doc.action)"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active"
+  }
+ ],
+ "links": [],
+ "modified": "2026-07-20 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Receivables & Collections",
+ "name": "Collections Cadence Rule",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Collections Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Sales Rep"
+  }
+ ],
+ "sort_field": "days_overdue_from",
+ "sort_order": "ASC",
+ "title_field": "action",
+ "track_changes": 1
+}

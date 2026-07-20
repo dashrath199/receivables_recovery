@@ -1,0 +1,35 @@
+{
+ "attachment_print_format": null,
+ "attach_print": 0,
+ "channel": "System Notification",
+ "condition": "doc.status == \"Failed\"",
+ "date_changed": null,
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Communication Log",
+ "enabled": 1,
+ "event": "Value Change",
+ "is_standard": 1,
+ "message": "<div>\n    <p><strong>Message Delivery Failed</strong></p>\n    <p>A message sent through the collections cadence has failed.</p>\n    <ul>\n        <li><strong>Communication Log:</strong> <a href=\"/app/communication-log/{{ doc.name }}\">{{ doc.name }}</a></li>\n        <li><strong>Customer:</strong> {{ doc.customer }}</li>\n        <li><strong>Channel:</strong> {{ doc.channel }}</li>\n        <li><strong>Sent On:</strong> {{ doc.sent_on }}</li>\n        <li><strong>Current Status:</strong> {{ doc.status }}</li>\n        <li><strong>Error:</strong> {{ doc.error_log }}</li>\n    </ul>\n    <p><strong>Action Required:</strong> Check provider dashboard (Gupshup/MSG91) for more details. The system will retry failed messages automatically.</p>\n</div>",
+ "message_type": "HTML",
+ "method": null,
+ "module": "Receivables & Collections",
+ "name": "Message Delivery Failed",
+ "print_format": null,
+ "property_value": "Failed",
+ "recipients": [
+  {
+   "cc": null,
+   "condition": "",
+   "receiver_by_document_field": "",
+   "receiver_by_role": "Collections Manager"
+  }
+ ],
+ "send_system_notification": 1,
+ "send_to_all_assignees": 0,
+ "sender": null,
+ "sender_email": null,
+ "subject": "Message Delivery Failed: {{ doc.name }} — {{ doc.customer }}",
+ "value_changed": "status"
+}

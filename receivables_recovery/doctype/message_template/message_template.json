@@ -1,0 +1,113 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:template_name",
+ "creation": "2026-07-20 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "template_name",
+  "channel",
+  "language",
+  "section_break_4",
+  "whatsapp_template_id",
+  "column_break_6",
+  "body_text",
+  "variables_order"
+ ],
+ "fields": [
+  {
+   "fieldname": "template_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Template Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "channel",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Channel",
+   "options": "WhatsApp\nSMS\nEmail",
+   "reqd": 1
+  },
+  {
+   "fieldname": "language",
+   "fieldtype": "Select",
+   "label": "Language",
+   "options": "English\nHindi\nKannada\nTamil\nTelugu\nMarathi",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "whatsapp_template_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "WhatsApp Template ID",
+   "description": "The template name/ID as registered and pre-approved with the WhatsApp Business API provider (Gupshup/Meta). Must be approved before sending."
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "body_text",
+   "fieldtype": "Small Text",
+   "label": "Body Text",
+   "description": "Human-readable version with placeholders like {customer_name}, {invoice_no}, {amount}, {due_date}, {days_overdue}",
+   "reqd": 1
+  },
+  {
+   "fieldname": "variables_order",
+   "fieldtype": "Small Text",
+   "label": "Variables Order",
+   "description": "JSON array of variable names matching the approved WhatsApp template's placeholder order. WhatsApp API requires variables passed positionally, not by name. Example: [\"customer_name\", \"amount\", \"due_date\"]",
+   "options": "JSON"
+  }
+ ],
+ "links": [],
+ "modified": "2026-07-20 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Receivables & Collections",
+ "name": "Message Template",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Collections Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Sales Rep"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "template_name",
+ "track_changes": 1
+}

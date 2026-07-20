@@ -1,0 +1,291 @@
+{
+ "charts": [
+  {
+   "chart_name": "Aging Bucket Summary",
+   "label": "Aging Bucket Summary",
+   "type": "Stacked Bar"
+  },
+  {
+   "chart_name": "Collections Cadence Effectiveness",
+   "label": "Collections Cadence Effectiveness",
+   "type": "Bar"
+  },
+  {
+   "chart_name": "Message Delivery Report",
+   "label": "Message Delivery Report",
+   "type": "Donut"
+  }
+ ],
+ "content": [
+  {
+   "type": "shortcut",
+   "shortcuts": [
+    {
+     "label": "Open Dunning",
+     "type": "DocType",
+     "doc_type": "Dunning",
+     "only_enabled": 1,
+     "color": "Blue",
+     "icon": "invoice",
+     "link_to": "Dunning",
+     "stats_filter": "{}"
+    },
+    {
+     "label": "Overdue Invoices",
+     "type": "DocType",
+     "doc_type": "Sales Invoice",
+     "only_enabled": 1,
+     "color": "Red",
+     "icon": "outline",
+     "link_to": "Sales Invoice",
+     "stats_filter": "{\"status\":\"Overdue\"}"
+    },
+    {
+     "label": "Collections Cadence Rules",
+     "type": "DocType",
+     "doc_type": "Collections Cadence Rule",
+     "only_enabled": 1,
+     "color": "Green",
+     "icon": "schedule",
+     "link_to": "Collections Cadence Rule",
+     "stats_filter": "{}"
+    },
+    {
+     "label": "Message Templates",
+     "type": "DocType",
+     "doc_type": "Message Template",
+     "only_enabled": 1,
+     "color": "Purple",
+     "icon": "message",
+     "link_to": "Message Template",
+     "stats_filter": "{}"
+    },
+    {
+     "label": "Communication Log",
+     "type": "DocType",
+     "doc_type": "Communication Log",
+     "only_enabled": 1,
+     "color": "Orange",
+     "icon": "log",
+     "link_to": "Communication Log",
+     "stats_filter": "{}"
+    },
+    {
+     "label": "Message Delivery Report",
+     "type": "Report",
+     "doc_type": "Communication Log",
+     "only_enabled": 1,
+     "color": "Yellow",
+     "icon": "chart",
+     "link_to": "Message Delivery Report",
+     "stats_filter": "{}",
+     "is_query_report": 1
+    },
+    {
+     "label": "Dispute Register",
+     "type": "Report",
+     "doc_type": "Dunning",
+     "only_enabled": 1,
+     "color": "Red",
+     "icon": "flag",
+     "link_to": "Dispute Register",
+     "stats_filter": "{}",
+     "is_query_report": 1
+    }
+   ]
+  },
+  {
+   "type": "card",
+   "card_name": "Key Metrics",
+   "label": "Key Metrics",
+   "cards": [
+    {
+     "label": "Total Overdue (₹)",
+     "type": "report-summary",
+     "report_name": "Aging Bucket Summary",
+     "report_field": "outstanding_amount",
+     "function": "Sum",
+     "color": "blue",
+     "show_percentage": 0
+    },
+    {
+     "label": "90+ Days Overdue (₹)",
+     "type": "report-summary",
+     "report_name": "Aging Bucket Summary",
+     "report_field": "outstanding_amount_90_plus",
+     "function": "Sum",
+     "color": "red",
+     "show_percentage": 0
+    },
+    {
+     "label": "Disputed Amount (₹)",
+     "type": "report-summary",
+     "report_name": "Dispute Register",
+     "report_field": "outstanding_amount",
+     "function": "Sum",
+     "color": "orange",
+     "show_percentage": 0
+    },
+    {
+     "label": "Messages Sent This Week",
+     "type": "doc-type-count",
+     "document_type": "Communication Log",
+     "color": "green",
+     "show_percentage": 0
+    },
+    {
+     "label": "Failed Sends This Week",
+     "type": "doc-type-count",
+     "document_type": "Communication Log",
+     "color": "red",
+     "stats_filter": "{\"status\":\"Failed\"}",
+     "show_percentage": 0
+    }
+   ]
+  },
+  {
+   "type": "chart",
+   "chart_name": "Aging Bucket Summary",
+   "label": "Aging Bucket Summary",
+   "charts": [
+    {
+     "chart_name": "Aging Bucket Summary",
+     "label": "Aging Bucket Summary",
+     "type": "Stacked Bar",
+     "width": "Full"
+    }
+   ]
+  },
+  {
+   "type": "chart",
+   "chart_name": "Cadence & Delivery",
+   "label": "Cadence & Delivery",
+   "charts": [
+    {
+     "chart_name": "Collections Cadence Effectiveness",
+     "label": "Collections Cadence Effectiveness",
+     "type": "Bar",
+     "width": "Half"
+    },
+    {
+     "chart_name": "Message Delivery Report",
+     "label": "Message Delivery Report",
+     "type": "Donut",
+     "width": "Half"
+    }
+   ]
+  }
+ ],
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": null,
+ "indicator_color": "blue",
+ "is_standard": 1,
+ "label": "Receivables & Collections",
+ "links": [
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Collections",
+   "link_count": 3,
+   "link_to": "Dunning",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Configuration",
+   "link_count": 2,
+   "link_to": "Collections Cadence Rule",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Tracking",
+   "link_count": 1,
+   "link_to": "Communication Log",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Reports",
+   "link_count": 5,
+   "link_to": "Aging Bucket Summary",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Messaging",
+   "link_count": 1,
+   "link_to": "Message Template",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-07-20 00:00:00.000000",
+ "module": "Receivables & Collections",
+ "name": "Receivables & Collections",
+ "number_cards": [],
+ "public": 1,
+ "sequence_id": 1,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "doc_type": "Dunning",
+   "format": null,
+   "icon": null,
+   "label": "Dunning",
+   "link_to": "Dunning",
+   "stats_filter": "{}",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_type": "Collections Cadence Rule",
+   "format": null,
+   "icon": null,
+   "label": "Cadence Rules",
+   "link_to": "Collections Cadence Rule",
+   "stats_filter": "{}",
+   "type": "DocType"
+  },
+  {
+   "color": "Purple",
+   "doc_type": "Message Template",
+   "format": null,
+   "icon": null,
+   "label": "Message Templates",
+   "link_to": "Message Template",
+   "stats_filter": "{}",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_type": "Communication Log",
+   "format": null,
+   "icon": null,
+   "label": "Comm Log",
+   "link_to": "Communication Log",
+   "stats_filter": "{}",
+   "type": "DocType"
+  }
+ ],
+ "type": "Workspace"
+}

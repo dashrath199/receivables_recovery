@@ -1,0 +1,41 @@
+{
+ "attachment_print_format": null,
+ "attach_print": 0,
+ "channel": "System Notification",
+ "condition": "doc.escalation_stage == \"Legal Referral\"",
+ "date_changed": null,
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Dunning",
+ "enabled": 1,
+ "event": "Value Change",
+ "is_standard": 1,
+ "message": "<div>\n    <p><strong>Legal Escalation Required</strong></p>\n    <p>Dunning record <a href=\"/app/dunning/{{ doc.name }}\">{{ doc.name }}</a> has been escalated to <strong>Legal Referral</strong>.</p>\n    <ul>\n        <li><strong>Customer:</strong> {{ doc.customer }}</li>\n        <li><strong>Invoice:</strong> {{ doc.sales_invoice }}</li>\n        <li><strong>Escalation Stage:</strong> {{ doc.escalation_stage }}</li>\n        <li><strong>Total Dunning:</strong> {{ doc.total_dunning or \"See invoice\" }}</li>\n        <li><strong>Dispute Flagged:</strong> {{ doc.dispute_flag }}</li>\n        {% if doc.dispute_reason %}<li><strong>Dispute Reason:</strong> {{ doc.dispute_reason }}</li>{% endif %}\n    </ul>\n    <p><strong>Manual Review Required:</strong> This is a manual-review gate. Do not automate further action until reviewed by legal team.</p>\n</div>",
+ "message_type": "HTML",
+ "method": null,
+ "module": "Receivables & Collections",
+ "name": "Escalation to Legal",
+ "print_format": null,
+ "property_value": "Legal Referral",
+ "recipients": [
+  {
+   "cc": null,
+   "condition": "",
+   "receiver_by_document_field": "",
+   "receiver_by_role": "Collections Manager"
+  },
+  {
+   "cc": null,
+   "condition": "",
+   "receiver_by_document_field": "",
+   "receiver_by_role": "System Manager"
+  }
+ ],
+ "send_system_notification": 1,
+ "send_to_all_assignees": 0,
+ "sender": null,
+ "sender_email": null,
+ "subject": "Legal Escalation: {{ doc.name }} — {{ doc.customer }}",
+ "value_changed": "escalation_stage"
+}
