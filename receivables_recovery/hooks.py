@@ -20,7 +20,7 @@ app_include_css = []
 fixtures = [
     {"dt": "Custom Field", "filters": [["dt", "in", ["Dunning", "Customer"]]]},
     {"dt": "Role", "filters": [["role_name", "in", ["Collections Manager", "Sales Rep"]]]},
-    {"dt": "Report", "filters": [["module", "=", "Receivables & Collections"]]},
+    {"dt": "Report", "filters": [["module", "=", "receivables_and_collections"]]},
 ]
 
 # Website

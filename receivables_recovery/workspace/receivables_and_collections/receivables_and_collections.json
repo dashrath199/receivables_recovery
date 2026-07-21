@@ -240,7 +240,7 @@
   }
  ],
  "modified": "2026-07-20 00:00:00.000000",
- "module": "Receivables & Collections",
+ "module": "receivables_and_collections",
  "name": "Receivables & Collections",
  "number_cards": [],
  "public": 1,

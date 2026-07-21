@@ -9,7 +9,7 @@
  "is_standard": "Yes",
  "json": "{}",
  "modified": "2026-07-20 00:00:00.000000",
- "module": "Receivables & Collections",
+ "module": "receivables_and_collections",
  "name": "Collections Cadence Effectiveness",
  "prepared_report": 0,
  "query": "",

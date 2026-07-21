@@ -97,7 +97,7 @@
  "links": [],
  "modified": "2026-07-20 00:00:00.000000",
  "modified_by": "Administrator",
- "module": "Receivables & Collections",
+ "module": "receivables_and_collections",
  "name": "Communication Log",
  "owner": "Administrator",
  "permissions": [
