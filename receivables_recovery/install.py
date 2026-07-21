@@ -60,19 +60,32 @@ def import_roles():
 
 def import_notifications():
     """Import notification definitions."""
-    notifications_dir = frappe.get_app_path("notification")
-    import_json_directory_fixtures(notifications_dir, "Notification")
+    try:
+        notifications_dir = frappe.get_app_path("receivables_recovery", "notification")
+        import_json_directory_fixtures(notifications_dir, "Notification")
+    except Exception as e:
+        frappe.log_error(
+            f"Failed to import notifications: {str(e)}",
+            "Receivables Recovery — Fixture Import",
+        )
 
 
 def import_workspace():
     """Import workspace definition."""
-    workspace_path = frappe.get_app_path(
-        "workspace",
-        "receivables_and_collections",
-        "receivables_and_collections.json",
-    )
-    if frappe.get_file_json(workspace_path):
-        import_single_fixture(workspace_path, "Workspace")
+    try:
+        workspace_path = frappe.get_app_path(
+            "receivables_recovery",
+            "workspace",
+            "receivables_and_collections",
+            "receivables_and_collections.json",
+        )
+        if frappe.get_file_json(workspace_path):
+            import_single_fixture(workspace_path, "Workspace")
+    except Exception as e:
+        frappe.log_error(
+            f"Failed to import workspace: {str(e)}",
+            "Receivables Recovery — Fixture Import",
+        )
 
 
 def import_json_fixture(filepath_rel, doctype):
@@ -83,7 +96,7 @@ def import_json_fixture(filepath_rel, doctype):
         doctype: Target DocType name, e.g. "Custom Field"
     """
     try:
-        filepath = frappe.get_app_path(filepath_rel)
+        filepath = frappe.get_app_path("receivables_recovery", filepath_rel)
         records = frappe.get_file_json(filepath)
         if not records:
             return
