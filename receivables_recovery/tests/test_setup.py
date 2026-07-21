@@ -29,8 +29,8 @@ from pathlib import Path
 #    `receivables_recovery` resolves to the Python module
 #    (the directory containing tasks.py, messaging.py, etc.)
 # ---------------------------------------------------------------------------
-# Frappe app root = tests/ -> repo root (2 levels up)
-_APP_ROOT = Path(__file__).resolve().parent.parent
+# Frappe app root = tests/ -> Python module -> repo root (3 levels up)
+_APP_ROOT = Path(__file__).resolve().parent.parent.parent
 if str(_APP_ROOT) not in sys.path:
     sys.path.insert(0, str(_APP_ROOT))
 
