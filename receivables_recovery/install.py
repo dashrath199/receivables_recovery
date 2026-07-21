@@ -219,11 +219,17 @@ def create_demo_customers():
 
     for c in customers:
         if not frappe.db.exists("Customer", c["customer_name"]):
+            # Map customer_type to a non-group Customer Group
+            customer_group = (
+                "Individual"
+                if c["customer_type"] == "Individual"
+                else "Company"
+            )
             doc = frappe.get_doc({
                 "doctype": "Customer",
                 "customer_name": c["customer_name"],
                 "customer_type": c["customer_type"],
-                "customer_group": "All Customer Groups",
+                "customer_group": customer_group,
                 "territory": "All Territories",
                 "whatsapp_number": c["whatsapp_number"],
                 "sms_number": c["sms_number"] or c["whatsapp_number"],
