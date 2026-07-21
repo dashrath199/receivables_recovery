@@ -13,8 +13,7 @@ from pathlib import Path
 # Ensure correct sys.path for the receivables_recovery Python module
 # ---------------------------------------------------------------------------
 # conftest.py is at: tests/conftest.py
-# The Frappe app root is 3 levels up: tests/ -> Python module -> Frappe app root
-# The Frappe app root contains the Python module as a subdirectory.
-PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+# The Frappe app root is 2 levels up: tests/ -> repo root
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))

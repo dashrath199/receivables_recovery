@@ -50,24 +50,23 @@ def import_fixtures():
 
 def import_custom_fields():
     """Import custom fields from fixtures/custom_fields.json."""
-    import_json_fixture("receivables_recovery/fixtures/custom_fields.json", "Custom Field")
+    import_json_fixture("fixtures/custom_fields.json", "Custom Field")
 
 
 def import_roles():
     """Import roles from fixtures/roles.json."""
-    import_json_fixture("receivables_recovery/fixtures/roles.json", "Role")
+    import_json_fixture("fixtures/roles.json", "Role")
 
 
 def import_notifications():
     """Import notification definitions."""
-    notifications_dir = frappe.get_app_path("receivables_recovery", "notification")
+    notifications_dir = frappe.get_app_path("notification")
     import_json_directory_fixtures(notifications_dir, "Notification")
 
 
 def import_workspace():
     """Import workspace definition."""
     workspace_path = frappe.get_app_path(
-        "receivables_recovery",
         "workspace",
         "receivables_and_collections",
         "receivables_and_collections.json",
@@ -80,7 +79,7 @@ def import_json_fixture(filepath_rel, doctype):
     """Import a JSON fixture file into a Frappe DocType.
 
     Args:
-        filepath_rel: Path relative to the app, e.g. "receivables_recovery/fixtures/custom_fields.json"
+        filepath_rel: Path relative to the app, e.g. "fixtures/custom_fields.json"
         doctype: Target DocType name, e.g. "Custom Field"
     """
     try:
